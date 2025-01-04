@@ -8,22 +8,50 @@ if [ $USERID -ne 0 ]
     exit 1  #other than 0
 fi
 
-dnf install mysql -y
+dnf list installed mysql
 
 if [ $? -ne 0 ]
- then 
-   echo "Installing MySQL... FAILURE"
-   exit 1
- else
-   echo "Installing My SQL...SUCCESS"
- fi
+then # not installed
+ dnf install mysql -y
+    if [ $? -ne 0 ]
+    then
+        echo "Installing Mysql..FAILURE"
+        exit 1
+    else
+        echo "Installing MySQL...SUCCESS"
+    fi
+else
+    echo "MYSQL is already installed...INSTALLED"
+    fi
 
- dnf install git -y
+#  if [ $? -ne 0 ]
+#  then 
+#    echo "Installing MySQL... FAILURE"
+#    exit 1
+#  else
+#    echo "Installing My SQL...SUCCESS"
+#  fi
 
- if [ $? -ne 0 ]
+ dnf list installed git
+
+  if [ $? -ne 0 ]
+then 
+      dnf install git -y
+  if [ $? -ne 0 ]
   then
      echo "Installing Git..FAILURE"
      exit 1
  else
      echo "Installing Git...SUCCESS"
- fi        
+ fi    
+ else
+      echo "GIT is already installed...INSTALLED" 
+ fi  
+
+#  if [ $? -ne 0 ]
+#   then
+#      echo "Installing Git..FAILURE"
+#      exit 1
+#  else
+#      echo "Installing Git...SUCCESS"
+#  fi    

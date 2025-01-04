@@ -18,13 +18,12 @@ else
    echo "Installing My SQL...SUCCESS'
  fi
 
+ dnf install git -y
 
-dnf install git -y
-
-if [ $? -ne 0 ];
-then 
-    echo "Installing git...FAILURE"
-    exit 1
-else
-    echo "Installing git...SUCCESS"
-fi       
+ if [ $? -ne 0 ]
+ then
+     echo "Installing Git..FAILURE"
+     exit 1
+ else
+     echo "Installing Git..SUCCESS"
+ fi        

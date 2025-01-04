@@ -15,15 +15,15 @@ then
    echo "Installing MySQL... FAILURE"
    exit 1
 else
-   echo "Installing My SQL...SUCCESS'
- fi
+   echo "Installing My SQL...SUCCESS"
+ fi;
 
  dnf install git -y
 
  if [ $? -ne 0 ]
- then
+ then;
      echo "Installing Git..FAILURE"
-     exit 1
+     exit 1;
  else
      echo "Installing Git..SUCCESS"
  fi        

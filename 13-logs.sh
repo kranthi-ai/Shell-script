@@ -9,6 +9,8 @@ LOG_FILE=$(echo $0 | cut -d "." -f1 )
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
+#$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log
+# /var/log/shell-script-logs/13_logs-2025-01-05-14-23-00.log
 
 VALIDATE(){
     if [ $1 -ne 0 ]

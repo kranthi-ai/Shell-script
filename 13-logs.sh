@@ -4,8 +4,8 @@ USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-LOGS_FOLDER="/var/log/shell-script-logs"
-LOG_FILE=$(echo $0 | cut -d "." -f1 )
+LOGS_FOLDER="/var/log/shell-script-logs"         # we are storing the logs in the created directory-folder)
+LOG_FILE=$(echo $0 | cut -d "." -f1 )            #
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 

@@ -10,7 +10,7 @@ TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
 
-VALIDAATE(){
+VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo -e "$2....$R FAILURE"
@@ -32,7 +32,8 @@ dnf list installed mysql  &>>$LOG_FILE_NAME
 
 if [ $? -ne 0 ]
 then # not installed
- dnf install mysql -y     &>>$LOG_FILE_NAME
+ dnf install mysql -y    &>>$LOG_FILE_NAME
+
  VALIDATE $? "Installing MySQL"
  
  else
@@ -41,11 +42,11 @@ then # not installed
 
 
 
- dnf list installed git  &>>$LOG_FILE_NAME
+ dnf list installed git    &>>$LOG_FILE_NAME
 
   if [ $? -ne 0 ]
 then 
-      dnf install git -y &>>$LOG_FILE_NAME
+      dnf install git -y   &>>$LOG_FILE_NAME
       VALIDATE $? "Installing Git"
  else
       echo -e "GIT is already installed...$Y INSTALLED" 
